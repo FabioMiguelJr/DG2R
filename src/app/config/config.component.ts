@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Exercise } from '../exercise';
 import { TimerService } from '../timer.service';
 
 @Component({
@@ -20,7 +21,7 @@ export class ConfigComponent {
 
   add() {
     const exercise = this.exerciseForm.value;
-    //this.ts.add(exercise);
+    this.ts.add(exercise as Exercise);
     this.exerciseForm.reset({ ...exercise, name: '' });
   }
 

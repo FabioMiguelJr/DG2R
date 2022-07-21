@@ -30,11 +30,16 @@ export class TimerService {
   }
 
   next() {
-    if (this.phase < 2) {
-      this.phase++;
+      if (this.phase < 2) {
+        this.phase++;
     } else {
       const ex = this.exercises[this.currentEx];
-      if (this.currentRep < ex.repetition - 1) {
+      if (ex.repetition) {
+        exr = ex.repetition;
+      } else {
+        exr = 0;
+      }
+      if (this.currentRep < exr - 1) {
         this.currentRep++;
         this.phase = 1;
       } else {
@@ -88,8 +93,8 @@ export class TimerService {
     }
   }
 
-  add(ex: Exercise) {
-    this.exercises.push(ex);
+  add(exercise: Exercise) {
+    this.exercises.push(exercise);
   }
 
   delete(i: number) {

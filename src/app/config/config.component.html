@@ -1,8 +1,3 @@
-<!-- <div>Exercício: <input [(ngModel)]="exercise.name" /></div>
-<div>Duração: <input [(ngModel)]="exercise.duration" /></div>
-<div>Repetições: <input [(ngModel)]="exercise.repetition" /></div>
-<div>Preparação: <input [(ngModel)]="exercise.preparation" /></div>
-<div>Descanso: <input [(ngModel)]="exercise.rest" /></div> -->
 <form [formGroup]="exerciseForm" (ngSubmit)="add()">
   <div>Exercício: <input formControlName="name" /></div>
   <div>Duração: <input formControlName="duration" /></div>
