@@ -1,0 +1,32 @@
+<!-- <div>Exercício: <input [(ngModel)]="exercise.name" /></div>
+<div>Duração: <input [(ngModel)]="exercise.duration" /></div>
+<div>Repetições: <input [(ngModel)]="exercise.repetition" /></div>
+<div>Preparação: <input [(ngModel)]="exercise.preparation" /></div>
+<div>Descanso: <input [(ngModel)]="exercise.rest" /></div> -->
+<form [formGroup]="exerciseForm" (ngSubmit)="add()">
+  <div>Exercício: <input formControlName="name" /></div>
+  <div>Duração: <input formControlName="duration" /></div>
+  <div>Repetições: <input formControlName="repetition" /></div>
+  <div>Preparação: <input formControlName="preparation" /></div>
+  <div>Descanso: <input formControlName="rest" /></div>
+  <button type="submit" [disabled]="exerciseForm.invalid">Adicionar</button>
+</form>
+
+<table>
+  <tr>
+    <th>Exercício</th>
+    <th>Duração</th>
+    <th>Repetições</th>
+    <th>Preparação</th>
+    <th>Descanso</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let e of ts.exercises; let i = index">
+    <td>{{ e.name }}</td>
+    <td>{{ e.duration }}</td>
+    <td>{{ e.repetition }}</td>
+    <td>{{ e.preparation }}</td>
+    <td>{{ e.rest }}</td>
+    <td><button (click)="delete(i)">X</button></td>
+  </tr>
+</table>
